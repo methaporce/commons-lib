@@ -30,8 +30,9 @@ public final class PaymentMethod implements Serializable {
 	private Card card;
 
 	public enum NameEnum {
-		NAME_1,
-		NAME_2,
-		NAME_3;
+		TRANSFER,
+		CREDIT_CARD,
+		DEBIT_CARD,
+		OTHER
 	}
 }
