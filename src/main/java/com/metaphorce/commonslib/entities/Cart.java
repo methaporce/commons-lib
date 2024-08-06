@@ -1,5 +1,6 @@
 package com.metaphorce.commonslib.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public final class Cart implements Serializable {
 			foreignKey = @ForeignKey(name = "fk_cart__user"))
 	private Users user;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
 	private List<CartItem> items;
 }

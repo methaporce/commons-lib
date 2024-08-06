@@ -36,6 +36,19 @@
 			<version>3.3.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+
+		<!-- Dependencia de Jackson para soporte JPA -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-hibernate5</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

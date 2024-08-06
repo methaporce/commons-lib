@@ -9,7 +9,11 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateOrderRequest {
+public class ProductDto {
 
-    private Long cartId;
+    private Long productId;
+    private String productPathImage;
+    private String productName;
+    private BigDecimal productPrice;
+    private Integer productQuantity;
 }
