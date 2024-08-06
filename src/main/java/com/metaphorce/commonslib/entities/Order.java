@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -25,8 +27,9 @@ public final class Order implements Serializable {
 			foreignKey = @ForeignKey(name = "fk_order__cart"))
 	private Cart cart;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "payment_method_id", nullable = false,
-			foreignKey = @ForeignKey(name = "fk_order__payment_method"))
-	private PaymentMethod paymentMethod;
+	@Column(name = "total_to_pay", nullable = false, precision = 19, scale = 2)
+	private BigDecimal totalToPay;
+
+	@Column(name = "date", nullable = false)
+	private LocalDateTime date;
 }

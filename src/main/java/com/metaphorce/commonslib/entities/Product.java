@@ -36,4 +36,7 @@ public final class Product implements Serializable {
 
 	@Column(name = "stock", nullable = false)
 	private Integer stock;
+
+	@Column(name = "path_image", nullable = false)
+	private String pathImage;
 }

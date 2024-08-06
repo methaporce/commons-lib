@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -25,11 +26,6 @@ public final class Cart implements Serializable {
 			foreignKey = @ForeignKey(name = "fk_cart__user"))
 	private Users user;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "product_id", nullable = false,
-			foreignKey = @ForeignKey(name = "fk_cart__product"))
-	private Product product;
-
-	@Column(name = "quantity", nullable = false)
-	private Integer quantity;
+	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
+	private List<CartItem> items;
 }
