@@ -24,15 +24,11 @@ public final class PaymentMethod implements Serializable {
 	@Column(name = "name", nullable = false)
 	private PaymentMethodEnum name;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "card_id", nullable = false,
-			foreignKey = @ForeignKey(name = "fk_payment_method__card"))
-	private Card card;
-
 	public enum PaymentMethodEnum {
-		TRANSFER,
 		CREDIT_CARD,
 		DEBIT_CARD,
+		TRANSFER,
+		CASH,
 		OTHER
 	}
 }

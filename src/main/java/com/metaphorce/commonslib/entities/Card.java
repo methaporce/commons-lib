@@ -37,21 +37,18 @@ public final class Card implements Serializable {
 			foreignKey = @ForeignKey(name = "fk_card__users"))
 	private Users user;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "card_type", nullable = false)
-	private CardTypeEnum cardType;
-
 	@Column(name = "card_number", nullable = false)
 	private String cardNumber;
+
+	@Column(name = "cvv", nullable = false)
+	private String cvv;
 
 	@Column(name = "expiration", nullable = false)
 	private LocalDate expiration;
 
-	public enum CardTypeEnum {
-		DEBIT,
-		CREDIT,
-		PREPAID,
-		CASH,
-		OTHER;
-	}
+	@ManyToOne
+	@JoinColumn(name = "payment_method_id", nullable = false,
+			foreignKey = @ForeignKey(name = "fk_card__payment_method"))
+	private PaymentMethod paymentMethod;
+
 }

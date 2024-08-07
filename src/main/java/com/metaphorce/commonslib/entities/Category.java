@@ -1,6 +1,7 @@
 package com.metaphorce.commonslib.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,4 +31,20 @@ public final class Category implements Serializable {
 
 	@Column(name = "name", unique = true, nullable = false)
 	private String name;
+
+	@Column(name = "description")
+	private String description;
+
+	@Column(name = "active", nullable = false)
+	private Boolean active;
+
+	@Column(name = "deleted", nullable = false)
+	private Boolean deleted;
+
+	@Column(name = "created_at", nullable = false)
+	private LocalDateTime createdAt;
+
+	@Column(name = "updated_at", nullable = false)
+	private LocalDateTime updatedAt;
+
 }

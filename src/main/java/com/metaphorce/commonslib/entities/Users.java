@@ -1,6 +1,8 @@
 package com.metaphorce.commonslib.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,9 +41,24 @@ public final class Users implements Serializable {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@Column(name = "location")
-	private String location;
-
 	@Column(name = "phone")
 	private String phone;
+
+	@Column(name = "email", unique = true, nullable = false)
+	private String email;
+
+	@Column(name = "role", nullable = false)
+	private String role;
+
+	@Column(name = "active", nullable = false)
+	private Boolean active;
+
+	@Column(name = "deleted", nullable = false)
+	private Boolean deleted;
+
+	@Column(name = "created_at", nullable = false)
+	private LocalDateTime createdAt;
+
+	@Column(name = "updated_at", nullable = false)
+	private LocalDateTime updatedAt;
 }

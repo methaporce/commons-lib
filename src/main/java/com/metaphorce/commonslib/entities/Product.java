@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -39,4 +40,19 @@ public final class Product implements Serializable {
 
 	@Column(name = "path_image", nullable = false)
 	private String pathImage;
+
+	@Column(name = "description")
+	private String description;
+
+	@Column(name = "active", nullable = false)
+	private Boolean active;
+
+	@Column(name = "deleted", nullable = false)
+	private Boolean deleted;
+
+	@Column(name = "created_at", nullable = false)
+	private LocalDateTime createdAt;
+
+	@Column(name = "updated_at", nullable = false)
+	private LocalDateTime updatedAt;
 }

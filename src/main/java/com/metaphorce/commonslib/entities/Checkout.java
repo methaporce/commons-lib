@@ -27,8 +27,18 @@ public final class Checkout implements Serializable {
 			foreignKey = @ForeignKey(name = "fk_checkout__order"))
 	private Order order;
 
-	@Column(name = "total_to_pay", nullable = false, precision = 19, scale = 2)
-	private BigDecimal totalToPay;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "card_user_id", nullable = false,
+			foreignKey = @ForeignKey(name = "fk_checkout__card_user"))
+	private Card cardUser;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "payment_method_id", nullable = false,
+			foreignKey = @ForeignKey(name = "fk_checkout__payment_method"))
+	private PaymentMethod paymentMethod;
+
+	@Column(name = "total_paid", nullable = false, precision = 19, scale = 2)
+	private BigDecimal totalPaid;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status", nullable = false)
