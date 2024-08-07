@@ -32,12 +32,13 @@ public final class Checkout implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status", nullable = false)
-	private StatusEnum status;
+	private CheckoutStatusEnum status;
 
 	@Column(name = "date", nullable = false)
 	private LocalDateTime date;
 
-	public enum StatusEnum {
+	public enum CheckoutStatusEnum {
+		INITIAL,
 		IN_PROGRESS,
 		ACCEPTED,
 		REJECTED,

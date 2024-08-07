@@ -27,6 +27,12 @@ public final class Cart implements Serializable {
 			foreignKey = @ForeignKey(name = "fk_cart__user"))
 	private Users user;
 
+	@Column(nullable = false)
+	private Boolean active;
+
+	@Column(nullable = false)
+	private Boolean deleted;
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
 	private List<CartItem> items;

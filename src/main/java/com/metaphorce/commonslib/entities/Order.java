@@ -30,6 +30,27 @@ public final class Order implements Serializable {
 	@Column(name = "total_to_pay", nullable = false, precision = 19, scale = 2)
 	private BigDecimal totalToPay;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "users_id", nullable = false,
+			foreignKey = @ForeignKey(name = "fk_order__user"))
+	private Users users;
+
 	@Column(name = "date", nullable = false)
 	private LocalDateTime date;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status", nullable = false)
+	private OrderStatusEnum orderStatus;
+
+	public enum OrderStatusEnum {
+		INITIAL,
+		ACCEPTED,
+		REJECTED,
+		COMPLETED,
+		CANCELLED,
+		EXPIRED,
+		ERROR,
+		WAITING,
+		UNKNOWN;
+	}
 }

@@ -38,4 +38,10 @@ public final class Users implements Serializable {
 
 	@Column(name = "password", nullable = false)
 	private String password;
+
+	@Column(name = "location")
+	private String location;
+
+	@Column(name = "phone")
+	private String phone;
 }
